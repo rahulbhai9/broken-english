@@ -76,7 +76,10 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     if (response.statusCode == 200) {
-      Map<String, dynamic> data = jsonDecode(response.body);
+      Map<String, dynamic> resData = jsonDecode(response.body);
+      List<dynamic> candidates = resData['candidates'];
+      sdata = candidates.isNotEmpty ? candidates[0]['output'] : '';
+      Map<String, dynamic> data = jsonDecode(sdata);
       isCorrect = data['isCorrect'] == true;
       String generatedText = data['text'];
 
@@ -88,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
       if (isCorrect) {
         // Show button only if the answer is incorrect
         // Fetch another sentence if the answer is correct
-var future = new Future.delayed(const Duration(milliseconds: 1500),         getDirectSpeech);
+new Future.delayed(const Duration(milliseconds: 1500),         getDirectSpeech);
 
 //        getDirectSpeech();
       }
