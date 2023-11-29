@@ -26,6 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String directSpeechSentence = '';
   bool isLoading = true;
 
+  bool isCorrect = false;
   @override
   void initState() {
     super.initState();
@@ -76,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     if (response.statusCode == 200) {
       Map<String, dynamic> data = jsonDecode(response.body);
-      bool isCorrect = data['isCorrect'] == true;
+      isCorrect = data['isCorrect'] == true;
       String generatedText = data['text'];
 
       setState(() {
@@ -103,7 +104,7 @@ var future = new Future.delayed(const Duration(milliseconds: 1500),         getD
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: liveText('Direct-Indirect Speech Practice'),
+        title: LiveText('Direct-Indirect Speech Practice'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -128,7 +129,7 @@ var future = new Future.delayed(const Duration(milliseconds: 1500),         getD
                 child: Text('Get Next Sentence'),
               ),
             SizedBox(height: 20),
-            liveText(responseText),
+            LiveText(responseText),
           ],
         ),
       ),
