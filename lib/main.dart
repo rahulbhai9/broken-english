@@ -112,7 +112,7 @@ var future = new Future.delayed(const Duration(milliseconds: 1500),         getD
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (isLoading) CircularProgressIndicator(),
-            if (!isLoading) liveText('Direct Speech: $directSpeechSentence'),
+            if (!isLoading) LiveText('Direct Speech: $directSpeechSentence'),
             SizedBox(height: 20),
             TextField(
               controller: _answerController,
@@ -121,7 +121,7 @@ var future = new Future.delayed(const Duration(milliseconds: 1500),         getD
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: checkAnswer,
-              child: Text('Check Answer'),
+              child: Text('Answer'),
             ),
             if (!isLoading && !isCorrect)
               ElevatedButton(
