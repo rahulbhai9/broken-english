@@ -33,6 +33,7 @@ dependencies:
   awesome_notifications: ^0.6.21
   shared_preferences: ^2.0.13
   device_info_plus: ^3.2.3
+  supabase_flutter: ^2.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
